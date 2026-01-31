@@ -1,4 +1,5 @@
 package com.example.demo.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,11 +24,13 @@ public class BorrowRecord {
 
     // Many-to-One relationship with Member
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "member_id", nullable = false)
     private Member member;
 
     // Many-to-One relationship with Book
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "book_id", nullable = false)
     private Book book;
 
